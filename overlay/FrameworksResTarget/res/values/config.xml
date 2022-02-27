@@ -96,4 +96,8 @@
     -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
+    <!-- The maximum range of gamma adjustment possible using the screen
+         auto-brightness adjustment setting. -->
+    <fraction name="config_autoBrightnessAdjustmentMaxGamma">150%</fraction>
+
 </resources>
