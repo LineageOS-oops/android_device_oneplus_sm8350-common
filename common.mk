@@ -310,6 +310,14 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
 
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.ims.disableADBLogs=1 \
+    persist.vendor.ims.disableDebugLogs=1 \
+    persist.vendor.ims.disableIMSLogs=1 \
+    persist.vendor.ims.disableQXDMLogs=1
+endif
+
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
