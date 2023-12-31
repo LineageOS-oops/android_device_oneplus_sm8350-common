@@ -81,10 +81,6 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "s/android.hardware.graphics.common-V1-ndk_platform.so/android.hardware.graphics.common-V5-ndk.so\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
             ;;
-        product/app/PowerOffAlarm/PowerOffAlarm.apk)
-            [ "$2" = "" ] && return 0
-            apktool_patch "${2}" "${MY_DIR}/blob-patches/PowerOffAlarm.patch" -s
-            ;;
         product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
             [ "$2" = "" ] && return 0
             sed -i "s/\/my_product/\/product/" "${2}"
@@ -96,6 +92,9 @@ function blob_fixup() {
         system_ext/lib64/libwfdnative.so)
             [ "$2" = "" ] && return 0
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
+            ;;
+        vendor/bin/init.kernel.post_boot-lahaina.sh)
+            sed -i "s/uag/schedutil/" "${2}"
             ;;
         vendor/etc/media_*/video_system_specs.json)
             [ "$2" = "" ] && return 0
