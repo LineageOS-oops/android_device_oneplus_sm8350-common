@@ -18,4 +18,4 @@
 /dev/block/bootdevice/by-name/oplusreserve4    0660    root    system
 
 # WiFi
-firmware_directories /odm/etc/wifi/
+firmware_directories /mnt/vendor/persist/copy/ /mnt/vendor/persist/ /odm/etc/wifi/ /vendor/firmware_mnt/image/
