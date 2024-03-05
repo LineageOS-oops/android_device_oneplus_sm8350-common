@@ -114,7 +114,7 @@ function blob_fixup() {
             ;;
         vendor/etc/msm_irqbalance.conf)
             [ "$2" = "" ] && return 0
-            sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
+            sed -i "s/IGNORED_IRQ=27,23,38$/&,269,272/" "${2}"
             ;;
         vendor/lib/hw/audio.primary.lahaina.so)
             [ "$2" = "" ] && return 0
