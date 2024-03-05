@@ -73,7 +73,7 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/etc/media_codecs_lahaina.xml', 'vendor/etc/media_codecs_lahaina_vendor.xml', 'vendor/etc/media_codecs_yupik_v1.xml'): blob_fixup()
         .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).*\n', ''),
     'vendor/etc/msm_irqbalance.conf': blob_fixup()
-        .regex_replace('IGNORED_IRQ=27,23,38$', 'IGNORED_IRQ=27,23,38,115,332'),
+        .regex_replace('IGNORED_IRQ=27,23,38$', 'IGNORED_IRQ=27,23,38,269,272'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
