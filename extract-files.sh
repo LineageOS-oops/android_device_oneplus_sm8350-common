@@ -77,6 +77,9 @@ function blob_fixup() {
             sed -i "/SystemCamera = / s/1;/0;/g" "${2}"
             sed -i "/SystemCamera = / s/0;$/1;/" "${2}"
             ;;
+        odm/etc/dolby/multimedia_dolby_dax_default.xml)
+            sed -i 's/<volume-leveler-enable value="true"\/>/<volume-leveler-enable value="false"\/>/g' "${2}"
+            ;;
         odm/lib64/libAlgoProcess.so)
             [ "$2" = "" ] && return 0
             sed -i "s/android.hardware.graphics.common-V1-ndk_platform.so/android.hardware.graphics.common-V5-ndk.so\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
@@ -111,6 +114,7 @@ function blob_fixup() {
             ;;
         vendor/etc/media_codecs_lahaina.xml|vendor/etc/media_codecs_lahaina_vendor.xml|vendor/etc/media_codecs_yupik_v1.xml)
             sed -Ei "/media_codecs_(google_audio|google_c2|google_telephony|vendor_audio)/d" "${2}"
+            sed -i '/<MediaCodecs>/a <Include href="media_codecs_dolby_audio.xml" />' "${2}"
             ;;
         vendor/etc/msm_irqbalance.conf)
             [ "$2" = "" ] && return 0
